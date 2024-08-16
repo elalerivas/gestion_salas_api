@@ -1,0 +1,22 @@
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+# Ruta de ejemplo para verificar disponibilidad
+@app.route('/disponibilidad', methods=['GET'])
+def disponibilidad():
+    dia = request.args.get('dia')
+    id_sala = request.args.get('id_sala')
+    
+    # Aquí puedes implementar la lógica para consultar la base de datos de reservas
+    horarios_disponibles = {
+        "dia": dia,
+        "id_sala": id_sala,
+        "horarios": ["09:00-10:00", "14:00-15:00"]
+    }
+
+    return jsonify(horarios_disponibles)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
