@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+
 # Ruta de ejemplo para verificar disponibilidad
 @app.route('/disponibilidad', methods=['GET'])
 def disponibilidad():
@@ -17,6 +18,7 @@ def disponibilidad():
 
     return jsonify(horarios_disponibles)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
